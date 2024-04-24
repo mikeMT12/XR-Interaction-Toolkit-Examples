@@ -4,11 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - MBS:Floor
+  - MBS:Wall
   - Flame
   - Projectile
   - Destroyer
-  - MiniWorldCamera
-  - Water
   layers:
   - Default
   - TransparentFX
@@ -18,6 +18,9 @@ TagManager:
   - UI
   - 
   - 
+  - Platforms
+  - PostProcessing
+  - MousePlane
   - 
   - 
   - 
@@ -38,11 +41,14 @@ TagManager:
   - 
   - 
   - 
-  - Pushable
-  - Character Collider
-  - Character Controller
-  - Teleport
+  - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1157653183
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Top
+    uniqueID: 3685922723
     locked: 0
