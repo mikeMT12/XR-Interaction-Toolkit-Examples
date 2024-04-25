@@ -5,6 +5,7 @@ using UnityEngine;
 public interface IInteractable {
 
     void Interact(Transform interactorTransform);
+    void UnInteract();
     string GetInteractText();
     Transform GetTransform();
 

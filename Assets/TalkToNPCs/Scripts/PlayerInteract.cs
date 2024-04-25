@@ -5,9 +5,22 @@ using UnityEngine;
 public class PlayerInteract : MonoBehaviour {
 
     [SerializeField] private float interactRange = 10f;
-
+    [SerializeField] private List<NPCInteractable> listNpc;
+    public IInteractable closestInteractable;
     //private 
     private void Update() {
+        if (closestInteractable != null)
+        {
+            EnetrTrigger();
+        }
+        else
+        {
+            foreach(NPCInteractable npc in listNpc)
+            {
+                ExitfromTrigger(npc);
+            }
+           
+        }
         /* if (Input.GetKeyDown(KeyCode.E)) {
              IInteractable interactable = GetInteractableObject();
              Debug.Log(interactable);
@@ -15,10 +28,10 @@ public class PlayerInteract : MonoBehaviour {
                  interactable.Interact(transform);
              }
          }*/
-/*        if (closestInteractable != null)
-        {
+        /*        if (closestInteractable != null)
+                {
 
-        }*/
+                }*/
     }
 
     public IInteractable GetInteractableObject() {
@@ -33,7 +46,7 @@ public class PlayerInteract : MonoBehaviour {
             }
         }
 
-        IInteractable closestInteractable = null;
+        closestInteractable = null;
         foreach (IInteractable interactable in interactableList) {
             if (closestInteractable == null) {
                 closestInteractable = interactable;
@@ -49,17 +62,30 @@ public class PlayerInteract : MonoBehaviour {
 
         }
 
-        if (closestInteractable != null)
-        {
-            IInteractable interactable = GetInteractableObject();
-            Debug.Log(interactable);
-            if (interactable != null)
-            {
-                interactable.Interact(transform);
-            }
-        }
+ 
 
         return closestInteractable;
+    }
+
+
+    public void EnetrTrigger()
+    {
+        IInteractable interactable = GetInteractableObject();
+        Debug.Log(interactable);
+        if (interactable != null)
+        {
+            interactable.Interact(transform);
+        }
+    }
+
+    public void ExitfromTrigger(IInteractable interactable)
+    {
+        
+        Debug.Log(interactable);
+        if (interactable != null)
+        {
+            interactable.UnInteract();
+        }
     }
 
 }

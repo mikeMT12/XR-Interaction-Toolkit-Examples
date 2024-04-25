@@ -16,12 +16,19 @@ public class NPCInteractable : MonoBehaviour, IInteractable {
     }
 
     public void Interact(Transform interactorTransform) {
-        ChatBubble3D.Create(transform.transform, new Vector3(-.3f, 1.7f, 0f), ChatBubble3D.IconType.Happy, "Hello there!");
         answerUI.SetActive(true);
+        //ChatBubble3D.Create(transform.transform, new Vector3(-.3f, 1.7f, 0f), ChatBubble3D.IconType.Happy, "Hello there!");
+       
         //animator.SetTrigger("Talk");
 
         float playerHeight = 1.7f;
         //npcHeadLookAt.LookAtPosition(interactorTransform.position + Vector3.up * playerHeight);
+    }
+
+    public void UnInteract()
+    {
+        answerUI.SetActive(false);
+
     }
 
     public string GetInteractText() {

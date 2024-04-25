@@ -35,6 +35,10 @@ public class ButtonSphereInteractable : MonoBehaviour, IInteractable {
     public void Interact(Transform interactorTransform) {
         PushButton();
     }
+    public void UnInteract()
+    {
+
+    }
 
     public string GetInteractText() {
         return "Push button";

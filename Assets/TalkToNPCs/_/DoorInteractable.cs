@@ -19,6 +19,10 @@ public class DoorInteractable : MonoBehaviour, IInteractable {
     public void Interact(Transform interactorTransform) {
         ToggleDoor();
     }
+    public void UnInteract()
+    {
+        
+    }
 
     public string GetInteractText() {
         return "Open/Close Door";
